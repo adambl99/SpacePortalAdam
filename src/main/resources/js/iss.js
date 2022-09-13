@@ -1,12 +1,11 @@
-
-class Issrenderer{
+'use strict'
+class Iss {
 
     endpointUrl = 'https://api.wheretheiss.at/v1/satellites/25544';
 
     constructor(data) {
         this.data = data;
         this.fetchData();
-        setInterval(this.doAutoFetch, 500)
     }
 async fetchData(){
         let response = await fetch(this.endpointUrl);
@@ -29,3 +28,4 @@ updateUI(){
         $("#iss-units").text(this.data.units);
 }
 }
+var issRenderer = new Iss();
